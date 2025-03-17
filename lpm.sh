@@ -44,16 +44,16 @@ function help {
 function install_package {
 
 		mapfile -d $'\0' PACKAGE_LIB_JS < <(find "$1/lib/js/" -name '*.js')
-		mapfile -d $'\0' PACKAGE_LIB_LINKS < <(find "$1/lib/js/" -name '*.links')
+		mapfile -d $'\0' PACKAGE_LIB_LINKS < <(find "$1/lib/stdlib/" -name '*.links')
 
 		for it in $PACKAGE_LIB_JS
 		do
-				ln -sf "$(pwd)/${it}" "$LINKS_DIR/lib/js/"
+				ln -sf "${it}" "$LINKS_DIR/lib/js/"
 		done
 
 		for it in $PACKAGE_LIB_LINKS
 		do
-				ln -sf "$(pwd)/${it}" "$LINKS_DIR/lib/stdlib/"
+				ln -sf "${it}" "$LINKS_DIR/lib/stdlib/"
 		done
 }
 
